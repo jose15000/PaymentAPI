@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "T1TlIsAefL3IO91l2AqOhaZox9BVKJrj2NFJtI8ZjEs=",
+  "Source": "PaymetAPI",
+  "BasePath": "_content/PaymetAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
