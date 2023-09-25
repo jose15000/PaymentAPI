@@ -15,5 +15,7 @@ namespace PaymetAPI.Data
         }
 
         public DbSet<PaymetAPI.Models.Usuario> Usuario { get; set; } = default!;
+
+        public DbSet<PaymetAPI.Models.Transacao> Transacao { get; set; } = default!;
     }
 }

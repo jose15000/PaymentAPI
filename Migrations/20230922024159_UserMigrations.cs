@@ -17,7 +17,8 @@ namespace PaymetAPI.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    Saldo = table.Column<double>(type: "REAL", nullable: false)
+                    Saldo = table.Column<double>(type: "REAL", nullable: false),
+                    Limite = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {

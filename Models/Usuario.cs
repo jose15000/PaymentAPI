@@ -6,5 +6,7 @@
         public string? Nome { get; set; }
 
         public double Saldo { get; set; }
+
+        public double Limite { get; set; }
     }
 }

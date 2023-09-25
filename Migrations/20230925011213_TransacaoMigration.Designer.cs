@@ -10,8 +10,8 @@ using PaymetAPI.Data;
 namespace PaymetAPI.Migrations
 {
     [DbContext(typeof(PaymetAPIContext))]
-    [Migration("20230920020215_UserMigrations")]
-    partial class UserMigrations
+    [Migration("20230925011213_TransacaoMigration")]
+    partial class TransacaoMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,13 @@ namespace PaymetAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Limite")
+                        .HasColumnType("REAL");
+
                     b.Property<string>("Nome")
                         .HasColumnType("TEXT");
 
@@ -34,6 +41,17 @@ namespace PaymetAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuario");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Usuario");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("PaymetAPI.Models.Transacao", b =>
+                {
+                    b.HasBaseType("PaymetAPI.Models.Usuario");
+
+                    b.HasDiscriminator().HasValue("Transacao");
                 });
 #pragma warning restore 612, 618
         }

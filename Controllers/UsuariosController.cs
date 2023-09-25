@@ -10,11 +10,11 @@ using PaymetAPI.Models;
 
 namespace PaymetAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Usuario")]
     [ApiController]
     public class UsuariosController : Controller
     {
-        
+
         private readonly PaymetAPIContext _context;
 
         public UsuariosController(PaymetAPIContext context)
@@ -22,7 +22,7 @@ namespace PaymetAPI.Controllers
             _context = context;
         }
 
-        [HttpPost]
+        [HttpPost (Name = "Usuario Id")]
         public IActionResult AddUsuario(Usuario usuario)
         {
             _context.Add(usuario);
@@ -30,7 +30,7 @@ namespace PaymetAPI.Controllers
             return Ok();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "Usuario por Id")]
         public IActionResult RetornaPorId(int id)
         {
             var usuario = _context.Usuario.Find(id);
@@ -51,10 +51,11 @@ namespace PaymetAPI.Controllers
 
             Usuario.Nome = usuario.Nome;
             Usuario.Saldo = usuario.Saldo;
+            Usuario.Limite = usuario.Limite;
 
             _context.Update(Usuario);
             _context.SaveChanges();
-   
+
 
             return Ok(usuario);
         }
@@ -66,15 +67,16 @@ namespace PaymetAPI.Controllers
 
             if (usuario == null)
             {
-                throw new Exception("Erro, usuário não existe!");
+                return NotFound();
             }
 
             _context.Usuario.Remove(usuario);
             _context.SaveChanges();
 
             return Ok(usuario.Nome + " removido");
-               
+
         }
+        
         private bool UsuarioExists(int id)
         {
           return (_context.Usuario?.Any(e => e.Id == id)).GetValueOrDefault();
