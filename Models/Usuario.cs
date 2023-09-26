@@ -8,5 +8,10 @@
         public double Saldo { get; set; }
 
         public double Limite { get; set; }
+
+        public static implicit operator int(Usuario? v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

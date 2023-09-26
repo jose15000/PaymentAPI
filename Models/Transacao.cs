@@ -2,9 +2,11 @@
 {
     public class Transacao : Usuario
     {
-        public Usuario Id;
+        public int Id;
 
-        public int IdTransacao;
+        public int IdClienteEnvia;
+
+        public int IdClienteRecebe;
 
         public double Valor;
 

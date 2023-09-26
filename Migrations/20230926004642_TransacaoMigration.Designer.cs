@@ -10,7 +10,7 @@ using PaymetAPI.Data;
 namespace PaymetAPI.Migrations
 {
     [DbContext(typeof(PaymetAPIContext))]
-    [Migration("20230925011213_TransacaoMigration")]
+    [Migration("20230926004642_TransacaoMigration")]
     partial class TransacaoMigration
     {
         /// <inheritdoc />

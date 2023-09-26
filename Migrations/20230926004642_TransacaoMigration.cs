@@ -5,7 +5,7 @@
 namespace PaymetAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class NovaMigration : Migration
+    public partial class TransacaoMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
